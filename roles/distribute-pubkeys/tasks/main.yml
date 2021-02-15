@@ -1,0 +1,15 @@
+---
+- name: Deploy SSH key for local juergen to remote juergen
+  authorized_key: 
+    user=juergen
+    state=present
+    key="{{ lookup('file', '/home/juergen/.ssh/id_rsa.pub') }}"
+
+- name: Deploy SSH key for local root to remote root
+  authorized_key: 
+    user=root
+    state=present
+    key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+
+
+
